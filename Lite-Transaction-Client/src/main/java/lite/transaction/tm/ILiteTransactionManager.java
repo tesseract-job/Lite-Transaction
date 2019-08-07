@@ -17,6 +17,23 @@ public interface ILiteTransactionManager {
     String createMasterTransaction() throws LiteTransactionException;
 
     /**
+     * 通知TC提交所有事务
+     *
+     * @param XID 主分支ID
+     * @throws LiteTransactionException
+     */
+    void commitMasterTransaction(String XID) throws LiteTransactionException;
+
+    /**
+     * 通知TM回滚事务
+     *
+     * @param XID 主分支ID
+     * @throws LiteTransactionException
+     */
+    void rollbackTransaction(String XID) throws LiteTransactionException;
+
+
+    /**
      * 通知TM创建新的分支事务
      *
      * @param XID 主分支ID
@@ -41,19 +58,5 @@ public interface ILiteTransactionManager {
      */
     void cancelSlaverTransaction(String BXID) throws LiteTransactionException;
 
-    /**
-     * 通知TC提交所有事务
-     *
-     * @param XID 主分支ID
-     * @throws LiteTransactionException
-     */
-    void commitMasterTransaction(String XID) throws LiteTransactionException;
 
-    /**
-     * 通知TM回滚事务
-     *
-     * @param XID 主分支ID
-     * @throws LiteTransactionException
-     */
-    void rollbackTransaction(String XID) throws LiteTransactionException;
 }
