@@ -30,6 +30,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -38,7 +41,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1P5KUlzZV5p1BCT2YSswjL9gUpl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Lite-Transaction-Client/src/main/java/lite/transaction" />
@@ -125,11 +130,22 @@
       <option name="presentableId" value="Default" />
       <updated>1565158535760</updated>
       <workItem from="1565158540668" duration="234000" />
-      <workItem from="1565158794623" duration="2476000" />
+      <workItem from="1565158794623" duration="2740000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
