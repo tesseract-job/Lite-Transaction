@@ -9,23 +9,51 @@ import lite.transaction.exception.LiteTransactionException;
  */
 public interface ILiteTransactionManager {
     /**
-     * 向TM创建新的事务
+     * 通知TM创建新的主事务
      *
-     * @return XID
-     */
-    String createTransaction() throws LiteTransactionException;
-
-    /**
-     * 向TM提交事务
-     *
-     * @author nickle
-     */
-    void commitTransaction() throws LiteTransactionException;
-
-    /**
-     * 向TM回滚事务
-     *
+     * @return XID 主事务ID
      * @throws LiteTransactionException
      */
-    void rollbackTransaction() throws LiteTransactionException;
+    String createMasterTransaction() throws LiteTransactionException;
+
+    /**
+     * 通知TM创建新的分支事务
+     *
+     * @param XID 主分支ID
+     * @return BXID slave事务ID
+     * @throws LiteTransactionException
+     */
+    String createSlaveTransaction(String XID) throws LiteTransactionException;
+
+    /**
+     * 通知TC分支事务完成
+     *
+     * @param BXID slave分支ID
+     * @throws LiteTransactionException
+     */
+    void commitSlaverTransaction(String BXID) throws LiteTransactionException;
+
+    /**
+     * 通知TC分支事务取消
+     *
+     * @param BXID slave分支ID
+     * @throws LiteTransactionException
+     */
+    void cancelSlaverTransaction(String BXID) throws LiteTransactionException;
+
+    /**
+     * 通知TC提交所有事务
+     *
+     * @param XID 主分支ID
+     * @throws LiteTransactionException
+     */
+    void commitMasterTransaction(String XID) throws LiteTransactionException;
+
+    /**
+     * 通知TM回滚事务
+     *
+     * @param XID 主分支ID
+     * @throws LiteTransactionException
+     */
+    void rollbackTransaction(String XID) throws LiteTransactionException;
 }
