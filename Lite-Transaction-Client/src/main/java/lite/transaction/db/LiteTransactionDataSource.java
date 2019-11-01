@@ -18,46 +18,46 @@ public class LiteTransactionDataSource implements DataSource {
 
     @Override
     public Connection getConnection() throws SQLException {
-        return null;
+        return proxyDataSource.getConnection();
     }
 
     @Override
     public Connection getConnection(String username, String password) throws SQLException {
-        return null;
+        return proxyDataSource.getConnection(username,password);
     }
 
     @Override
     public <T> T unwrap(Class<T> iface) throws SQLException {
-        return null;
+        return proxyDataSource.unwrap(iface);
     }
 
     @Override
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
-        return false;
+        return proxyDataSource.isWrapperFor(iface);
     }
 
     @Override
     public PrintWriter getLogWriter() throws SQLException {
-        return null;
+        return proxyDataSource.getLogWriter();
     }
 
     @Override
     public void setLogWriter(PrintWriter out) throws SQLException {
-
+        proxyDataSource.setLogWriter(out);
     }
 
     @Override
     public void setLoginTimeout(int seconds) throws SQLException {
-
+        proxyDataSource.setLoginTimeout(seconds);
     }
 
     @Override
     public int getLoginTimeout() throws SQLException {
-        return 0;
+        return proxyDataSource.getLoginTimeout();
     }
 
     @Override
     public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-        return null;
+        return proxyDataSource.getParentLogger();
     }
 }
