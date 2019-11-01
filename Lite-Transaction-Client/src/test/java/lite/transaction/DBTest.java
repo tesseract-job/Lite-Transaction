@@ -1,9 +1,13 @@
 package lite.transaction;
 
+import com.alibaba.druid.sql.ast.SQLExpr;
+import com.alibaba.druid.sql.ast.SQLObject;
 import com.alibaba.druid.sql.ast.SQLStatement;
-import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlInsertStatement;
+import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlUpdateStatement;
 import com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * @program: Lite-Transaction
@@ -17,11 +21,15 @@ public class DBTest {
         String selectSql = "select * from test";
         String insertSqlWithColumns = "insert into test(id,name,age) values(1,\"name\",17)";
         String updateSqlNoColumns = "insert into test values(1,\"name\",17)";
-        String updateSql = "update test set name=\"udpateName\" where id=1 and age=2";
+        String updateSql = "update test set name=\"udpateName\" where id=1 and age=2 and name=\"name\"";
         String deleteSql = "delete from test where name=\"name\" and age=18";
-        MySqlStatementParser parser = new MySqlStatementParser(updateSqlNoColumns);
+        MySqlStatementParser parser = new MySqlStatementParser(updateSql);
         SQLStatement statement = parser.parseStatement();
-        MySqlInsertStatement insert = (MySqlInsertStatement) statement;
-        System.out.println(insert.getColumns());
+        MySqlUpdateStatement updateStatement = (MySqlUpdateStatement) statement;
+        SQLExpr where = updateStatement.getWhere();
+        List<SQLObject> children = where.getChildren();
+        children.forEach(sqlObject -> {
+            System.out.println(sqlObject);
+        });
     }
 }
