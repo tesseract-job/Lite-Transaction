@@ -1,4 +1,4 @@
-package lite.transaction.core.annotation;
+package lite.transaction.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
