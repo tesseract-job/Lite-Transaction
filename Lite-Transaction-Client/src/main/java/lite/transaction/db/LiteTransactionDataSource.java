@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  * @create: 2019-11-01 14:39
  **/
 public class LiteTransactionDataSource implements DataSource {
+    private DataSource proxyDataSource;
+
     @Override
     public Connection getConnection() throws SQLException {
         return null;

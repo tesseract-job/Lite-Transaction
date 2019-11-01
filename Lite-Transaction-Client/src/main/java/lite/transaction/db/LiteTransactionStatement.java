@@ -1,5 +1,7 @@
 package lite.transaction.db;
 
+import lombok.AllArgsConstructor;
+
 import java.sql.*;
 
 /**
@@ -8,6 +10,7 @@ import java.sql.*;
  * @author: nickle
  * @create: 2019-11-01 14:40
  **/
+@AllArgsConstructor
 public class LiteTransactionStatement implements Statement {
     private Statement proxyStatement;
 

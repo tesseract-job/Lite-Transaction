@@ -1,5 +1,7 @@
 package lite.transaction.db;
 
+import lombok.AllArgsConstructor;
+
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
@@ -11,12 +13,14 @@ import java.util.concurrent.Executor;
  * @author: nickle
  * @create: 2019-11-01 14:42
  **/
+@AllArgsConstructor
 public class LiteTransactionConnection implements Connection {
     private Connection proxyConnection;
 
     @Override
     public Statement createStatement() throws SQLException {
-        return null;
+        Statement statement = proxyConnection.createStatement();
+        return new LiteTransactionStatement(statement);
     }
 
     @Override
